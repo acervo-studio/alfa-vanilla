@@ -5,14 +5,14 @@
 </p>
 
 
-Build system boilerplate for React projects:
+Build system boilerplate for small-scale projects
 
 ### __Features:__
 
 * [Webpack](https://webpack.js.org/)
-* [React](https://reactjs.org/)
-* [Styled Components](https://styled-components.com/)
-* [TypeScript](https://www.typescriptlang.org/)
+* [ESBuild](https://github.com/evanw/esbuild)
+* [CSS Loader](https://webpack.js.org/loaders/css-loader/)
+* [Handlebars](https://handlebarsjs.com/)
 * [Image optimization](https://github.com/Klathmon/imagemin-webpack-plugin)
 
 ### __Start:__

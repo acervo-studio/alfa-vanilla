@@ -1,5 +1,6 @@
 import path from 'path';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import { ESBuildPlugin } from 'esbuild-loader';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
@@ -10,18 +11,21 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const config = {
   entry: {
-    app: `${rootDir}/src/index.tsx`,
+    app: `${rootDir}/src/index.js`,
   },
   module: {
     rules: [
       {
         exclude: /node_modules/,
         include: path.resolve(rootDir, 'src'),
-        test: /\.(ts|js)x?$/,
-        use: 'babel-loader',
+        test: /\.(ts|js)$/,
+        loader: 'esbuild-loader',
+        options: {
+          target: 'es2015', // Syntax to compile to (see options below for possible values)
+        },
       },
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
       {
@@ -31,6 +35,10 @@ const config = {
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: ['file-loader'],
+      },
+      {
+        test: /\.hbs$/,
+        loader: 'handlebars-loader',
       },
     ],
   },
@@ -44,6 +52,7 @@ const config = {
     },
   },
   plugins: [
+    new ESBuildPlugin(),
     new ForkTsCheckerWebpackPlugin({
       typescript: {
         diagnosticOptions: {
@@ -71,7 +80,7 @@ const config = {
     new HTMLWebpackPlugin({
       filename: 'index.html',
       inject: true,
-      template: path.join(rootDir, '/src/index.html'),
+      template: path.join(rootDir, '/src/index.hbs'),
     }),
   ],
 };
