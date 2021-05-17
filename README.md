@@ -12,7 +12,7 @@ Build system boilerplate for small-scale projects
 * [Webpack](https://webpack.js.org/)
 * [ESBuild](https://github.com/evanw/esbuild)
 * [CSS Loader](https://webpack.js.org/loaders/css-loader/)
-* [GLSL Loader](https://webpack.js.org/loaders/css-loader/)
+* [GLSL Loader](https://github.com/glslify/glslify-loader)
 * [Handlebars](https://handlebarsjs.com/)
 * [Image optimization](https://github.com/Klathmon/imagemin-webpack-plugin)
 
