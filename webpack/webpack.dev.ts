@@ -24,7 +24,7 @@ const config = (env: any, args: WebpackConfig): WebpackConfig => {
     plugins: [
       new HotModuleReplacementPlugin(),
     ]
-  });
+  } as any);
 }
 
 export default config;
