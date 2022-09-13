@@ -1,0 +1,8 @@
+{
+  "extends": "@parcel/config-default",
+  "transformers": {
+    "src/*.{glsl,vs,fs,vert,frag}": ["@parcel/transformer-glsl"],
+    "src/*.scss": ["@parcel/transformer-sass"],
+    "*.pug": ["parcel-transformer-pug-precompile"]
+  }
+}

@@ -1,7 +1,13 @@
 import styles from './style.css';
+import tmpl from './app.pug';
 
 export default class App {
-  constructor() {}
+  constructor() {
+    console.log('new app');
+    console.log(tmpl());
+  }
 
-  render() {}
+  render() {
+    document.querySelector('#root').appendChild(tmpl());
+  }
 }
